@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/YourTurnPWA",
     "ignore": [
       "firebase.json",
       "**/.*",
