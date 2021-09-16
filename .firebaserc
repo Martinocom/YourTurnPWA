@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "your-turn-pwa-app"
+  },
+  "targets": {
+    "your-turn-pwa-app": {
+      "hosting": {
+        "YourTurnPWA": [
+          "your-turn-pwa-app"
+        ]
+      }
+    }
   }
 }
