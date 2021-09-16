@@ -14,6 +14,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: auto;
+    background: $mainColor;
 }
    
 h1, h2, h3, h4, h5, h6 {
@@ -50,8 +51,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .background-box {
-    background: $mainColor !important;
     background: #222;
+    background: $mainColor !important;
     width: 100vw;
     min-height: 100vh;
     height: 100vh;
