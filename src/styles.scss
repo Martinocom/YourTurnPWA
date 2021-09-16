@@ -4,8 +4,12 @@ $secondColor: #01CFFB;
 $accentColor: #DCF740;
 $warningColor: #F76A34;
 
-body {
+html, body {
+    margin: 0;
+    padding: 0;
     font-family: 'Lora', serif;
+    min-height: 100vh;
+    height: auto;
 }
    
 h1, h2, h3, h4, h5, h6 {
@@ -42,9 +46,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .background-box {
-    width: 100%;
-    height: 100%;
-    background-color: $mainColor;
+    width: 100vw;
+    height: 100vh;
+    background: $mainColor;
 }
 
 
