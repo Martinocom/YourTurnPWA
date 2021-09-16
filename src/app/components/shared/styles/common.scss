@@ -1,0 +1,56 @@
+$mainColor: #3E97AB;
+$secondColor: #01CFFB;
+$accentColor: #DCF740;
+$warningColor: #F76A34;
+
+.flexbox {
+    display: flex;
+
+    &.horizontal {
+        flex-direction: row;
+    }
+
+    &.vertical {
+        flex-direction: column;
+    }
+
+    &.h-center {
+        justify-content: center;
+        align-content: center;
+    }
+
+    &.v-center {
+        align-items: center;
+    }
+
+    &.centered {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+}
+
+.background-box {
+    background: $mainColor;
+    width: 100vw;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/** Usage css **/
+.animated {
+    &.fade-in {
+        -webkit-animation: fadeEffect 0.3s;
+        animation: fadeEffect 0.3s; /* Fading effect takes 1 second */
+    }
+}
