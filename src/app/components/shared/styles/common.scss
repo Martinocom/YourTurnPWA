@@ -50,7 +50,19 @@ $warningColor: #F76A34;
 /** Usage css **/
 .animated {
     &.fade-in {
-        -webkit-animation: fadeEffect 0.3s;
-        animation: fadeEffect 0.3s; /* Fading effect takes 1 second */
+        -webkit-animation: fadeEffect 500ms;
+        animation: fadeEffect 500ms; /* Fading effect takes 1 second */
+    }
+
+    &.small-delay {
+        animation-delay: 500ms;
+    }
+
+    &.medium-delay {
+        animation-delay: 1000ms;
+    }
+
+    &.big-delay {
+        animation-delay: 1500ms;
     }
 }
