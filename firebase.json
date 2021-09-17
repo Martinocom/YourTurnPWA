@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "YourTurnPWA",
-      "public": "dist/YourTurnPWA",
+      "target": "YourTurn",
+      "public": "dist/YourTurn",
       "ignore": [
         "firebase.json",
         "**/.*",

@@ -1,7 +1,17 @@
 @use '../shared/styles/common.scss' as *;
 
-h1 {
+
+
+* {
     color: white;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    text-transform: unset;
+    font-variant: small-caps;
 }
 
 .logo {
@@ -10,4 +20,10 @@ h1 {
 
 .intro {
     margin-bottom: 2em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.block {
+    display: inline-block;
 }

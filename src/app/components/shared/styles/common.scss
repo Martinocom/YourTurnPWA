@@ -47,22 +47,42 @@ $warningColor: #F76A34;
     from {opacity: 0;}
     to {opacity: 1;}
 }
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+
 /** Usage css **/
 .animated {
     &.fade-in {
-        -webkit-animation: fadeEffect 500ms;
-        animation: fadeEffect 500ms; /* Fading effect takes 1 second */
+        opacity: 0;
+        -webkit-animation: fadeEffect 500ms forwards;
+        animation: fadeEffect 500ms forwards; /* Fading effect takes 1 second */
+    }
+
+    &.shake {
+        animation: shake 0.5s;
     }
 
     &.small-delay {
-        animation-delay: 500ms;
+        animation-delay: 300ms;
     }
 
     &.medium-delay {
-        animation-delay: 1000ms;
+        animation-delay: 600ms;
     }
 
     &.big-delay {
-        animation-delay: 1500ms;
+        animation-delay: 900ms;
     }
 }
