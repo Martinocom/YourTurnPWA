@@ -16,7 +16,7 @@ import { RegisterComponent } from 'src/app/components/register/register.componen
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
-  { path: '', redirectTo: 'landing'},
+  { path: '', redirectTo: 'landing', pathMatch: 'full'},
   { path: 'landing', component: LandingComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register-user', component: RegisterComponent},

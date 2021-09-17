@@ -5,7 +5,7 @@
   "targets": {
     "your-turn-pwa-app": {
       "hosting": {
-        "YourTurnPWA": [
+        "YourTurn": [
           "your-turn-pwa-app"
         ]
       }
