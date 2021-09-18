@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'register-user', component: RegisterComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'verify-email-address', component: VerifyEmailComponent},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
+  { path: 'dashboard', component: DashboardComponent},
 ];
 
 @NgModule({

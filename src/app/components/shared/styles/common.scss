@@ -91,10 +91,6 @@ $spinning-time: 800ms;
         animation: spin $spinning-time infinite linear;
     }
 
-    &.spaced {
-        margin-right: 0.4em;
-    }
-
     &.shake {
         animation: shake 0.5s;
     }
@@ -110,4 +106,8 @@ $spinning-time: 800ms;
     &.big-delay {
         animation-delay: 900ms;
     }
+}
+
+.spaced {
+    margin-right: 0.4em;
 }

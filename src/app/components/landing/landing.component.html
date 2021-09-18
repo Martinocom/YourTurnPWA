@@ -2,15 +2,19 @@
     <div class="flexbox vertical centered intro">
         <img class="logo animated fade-in" src="../../../assets/logo/logo.png"/>
         <h1 class="animated fade-in small-delay"><b>Your</b>Turn</h1>
-        <div class="block animated fade-in medium-delay">Hell <div class="block animated shake medium-delay"><b>no</b></div>! It's <div class="block animated shake medium-delay"><b>your</b></div> turn now!</div>
+        <div class="block subtitle animated fade-in medium-delay">Hell <div class="block animated shake medium-delay"><b>no</b></div>! It's <div class="block animated shake medium-delay"><b>your</b></div> turn now!</div>
     </div>
 
-    <div class="flexbox horizontal centered animated fade-in big-delay loading">
+    <div class="flexbox horizontal centered animated fade-in big-delay intro loading">
         <div *ngIf="!isLoggedInCheckPerformed"><div class="block"><i class="lni lni-spinner animated spinning spaced"></i></div>Checking login status...</div>
         <div *ngIf="isLoggedInCheckPerformed">
             <span class="loading">Hi buddy! It seems you're not logged in.</span><br/>
-            <span class="loading bigger">Try One of the methods below</span>
+            <span class="loading bigger">Try one of the methods below</span>
         </div>
+    </div>
+
+    <div class="flexbox horizontal centered animated fade-in big-delay">
+        <div class="google-button" (click)="onLoginClick()"><i class="lni lni-google spaced"></i> Google Login</div>
     </div>
 </div>
 

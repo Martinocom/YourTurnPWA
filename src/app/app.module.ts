@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 // Angular Firestore
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getAuth, provideAuth } from '@angular/fire/auth';
+import { browserPopupRedirectResolver, getAuth, indexedDBLocalPersistence, initializeAuth, provideAuth } from '@angular/fire/auth';
 
 // Components
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -19,6 +19,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { getApp } from '@firebase/app';
 
 
 
@@ -41,7 +42,12 @@ import { LandingComponent } from './components/landing/landing.component';
     // Angular Firestore
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
+    provideAuth(() => {
+      return initializeAuth(getApp(), {
+        persistence: indexedDBLocalPersistence,
+        popupRedirectResolver: browserPopupRedirectResolver,
+      })
+    }),
 
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
