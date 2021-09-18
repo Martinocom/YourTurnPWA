@@ -5,8 +5,12 @@
         <div class="block animated fade-in medium-delay">Hell <div class="block animated shake medium-delay"><b>no</b></div>! It's <div class="block animated shake medium-delay"><b>your</b></div> turn now!</div>
     </div>
 
-    <div class="flexbox vertical centered animated fade-in big-delay">
-        <p>Login things that I dunno how to do ¯\_(ツ)_/¯</p>
+    <div class="flexbox horizontal centered animated fade-in big-delay loading">
+        <div *ngIf="!isLoggedInCheckPerformed"><div class="block"><i class="lni lni-spinner animated spinning spaced"></i></div>Checking login status...</div>
+        <div *ngIf="isLoggedInCheckPerformed">
+            <span class="loading">Hi buddy! It seems you're not logged in.</span><br/>
+            <span class="loading bigger">Try One of the methods below</span>
+        </div>
     </div>
 </div>
 
