@@ -1,0 +1,8 @@
+@use "components/shared/styles/common.scss" as *;
+
+.update-warning {
+    padding: 1em;
+    background: $warningColor;
+    color: white;
+    font-size: 0.9em;
+}
