@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { getApp } from '@firebase/app';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -54,7 +55,9 @@ import { getApp } from '@firebase/app';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Common file and styles for all
 @use 'app/components/shared/styles/common.scss' as *;
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$YourTurn-primary: mat.define-palette($blue-palette, 800);
+$YourTurn-accent: mat.define-palette($blue-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$YourTurn-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$YourTurn-theme: mat.define-light-theme((
+  color: (
+    primary: $YourTurn-primary,
+    accent: $YourTurn-accent,
+    warn: $YourTurn-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($YourTurn-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
 
 ::ng-deep body,
 ::ng-deep html {
@@ -11,7 +49,7 @@ html, body {
     margin: 0;
     padding: 0;
     //font-family: 'Lora', serif;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     font-weight: 300;
     box-sizing: border-box;
     min-height: 100%;
