@@ -15,6 +15,7 @@ import { browserPopupRedirectResolver, getAuth, indexedDBLocalPersistence, initi
 // Material Design
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 // Components
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -40,7 +41,10 @@ import { getApp } from '@firebase/app';
     CommonModule,
     BrowserModule,
     AppRoutingModule,
+
+    // Material
     MatToolbarModule,
+    MatIconModule,
 
     // Angular Firestore
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
