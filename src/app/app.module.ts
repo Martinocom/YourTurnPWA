@@ -12,6 +12,11 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { browserPopupRedirectResolver, getAuth, indexedDBLocalPersistence, initializeAuth, provideAuth } from '@angular/fire/auth';
 
+// Material Design
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
 // Components
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
@@ -20,8 +25,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { getApp } from '@firebase/app';
-
-
 
 
 @NgModule({
@@ -39,6 +42,10 @@ import { getApp } from '@firebase/app';
     BrowserModule,
     AppRoutingModule,
 
+    // Material
+    MatToolbarModule,
+    MatIconModule,
+
     // Angular Firestore
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
@@ -54,7 +61,9 @@ import { getApp } from '@firebase/app';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

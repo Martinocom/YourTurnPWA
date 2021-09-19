@@ -17,11 +17,13 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   isLoggedInCheckPerformed = false;
   isLoggedIn = false
+  isRefreshAlreadyTriggered = false
 
   constructor(private auth: Auth, private router: Router) {
     if (auth) {
+      console.log("Check user auth")
       this.user = authState(this.auth);
-      this.userDisposable = this.user.pipe(
+      this.userDisposable = authState(this.auth).pipe(
         traceUntilFirst('auth'),
         map(u => !!u)
       ).subscribe(isLoggedIn => {
@@ -29,25 +31,34 @@ export class LandingComponent implements OnInit, OnDestroy {
         this.isLoggedIn = isLoggedIn
 
         if (this.isLoggedIn) {
+          this.isRefreshAlreadyTriggered = true
           this.onUserLoggedIn()
+          console.log("Is logged!")
         }
       });
 
-      /*
-      if (this.user != null) {
-        this.user.subscribe(user => {
-          if (user != null) {
-            // this.user.subscribe is valid
-            this.onUserLoggedIn()
-          } else {
-            // subscribed user is null
-            this.isLoggedIn = false
-          }
-        })
-      } else {
-        // this.user is null
-        this.isLoggedIn = false
-      }*/
+      
+      if (this.isRefreshAlreadyTriggered == false) {
+        if (this.user != null) {
+          this.user.subscribe(user => {
+            if (this.isRefreshAlreadyTriggered == false) {
+              if (user != null) {
+                // this.user.subscribe is valid
+                this.onUserLoggedIn()
+              } else {
+                // subscribed user is null
+                this.isLoggedIn = false
+              }
+            }
+          })
+        } else {
+          // this.user is null
+          this.isLoggedIn = false
+        }
+      }
+
+    } else {
+      console.log("No auth service is checking :(")
     }
   }
 
@@ -70,9 +81,11 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   onUserLoggedIn() {
-    this.isLoggedIn = true
-    this.router.navigate(['dashboard'])
-    console.log("Is logged in!")
+    if (this.isLoggedIn == false) {
+      this.isLoggedIn = true
+      this.router.navigate(['dashboard'])
+      console.log("Is logged in!")
+    }
   }
 
 }

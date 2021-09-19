@@ -1,7 +1,7 @@
 {
   "name": "YourTurn",
   "short_name": "YourTurn",
-  "theme_color": "#3E97AB",
+  "theme_color": "#00589b",
   "background_color": "#3E97AB",
   "display": "standalone",
   "scope": "./",
