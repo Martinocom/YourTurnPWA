@@ -7,13 +7,28 @@ import { SwUpdate } from '@angular/service-worker';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'YourTurnPWA';
-  update: boolean = false
+  isUpdateAvailable = false
+  isUpdateServiceInactive = false
+  countdown = 30
 
   constructor(updates: SwUpdate) {
-    updates.available.subscribe(event => {
-      this.update = true 
-      updates.activateUpdate().then(() => { document.location.reload() })
-    })
+    if (updates.isEnabled) {
+      updates.available.subscribe(event => {
+        this.isUpdateAvailable = true 
+        updates.checkForUpdate()
+        updates.activateUpdate().then(() => { document.location.reload() })
+
+        let intervalId = setInterval(() => {
+          this.countdown = this.countdown - 1;
+          if(this.countdown === 0) {
+            clearInterval(intervalId)
+            updates.checkForUpdate()
+            updates.activateUpdate().then(() => { document.location.reload() })
+          }
+        }, 1000)
+      })
+    } else {
+      this.isUpdateAvailable = true
+    }
   }
 }

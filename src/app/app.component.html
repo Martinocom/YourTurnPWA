@@ -1,1 +1,7 @@
+<div class="update-warning" *ngIf="isUpdateAvailable">
+    <b>Hey dude!</b> It seems you're using an outdated client! Please update by refreshing the page after <span>{{countdown}}}</span> seconds or reinstalling the WebApp from Web!
+</div>
+<div class="update-warning" *ngIf="isUpdateServiceInactive">
+    <b>Oh no!</b> It seems like your update service is broken. They may be an update for the app and you won't see it. Please refresh the page to check if this warking can disappear.
+</div>
 <router-outlet></router-outlet>
